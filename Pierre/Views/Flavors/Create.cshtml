@@ -1,0 +1,30 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Pierre.Models.Flavor
+@using Microsoft.AspNetCore.Mvc;
+@using Microsoft.AspNetCore.Identity;
+@using Pierre.Models;
+@using System.Threading.Tasks;
+@using Pierre.ViewModels;
+@using Microsoft.AspNetCore.Authorization;
+@using Microsoft.AspNetCore.Mvc.RazorPages;
+@using Microsoft.Extensions.Logging;
+
+<h4>Add a new flavor</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.Label("Flavor Name:")
+  @Html.TextBoxFor(model => model.FlavorName)
+  <br>
+  @Html.Label("Add a Treat, if available, to this Flavor type:")
+  @Html.DropDownList("TreatId")
+  <br>
+  <input type="submit" value="Add new flavor" class="btn btn-info" />
+}
+
+<div id="footer">
+  <button  class="bottom">@Html.ActionLink("Show all flavors", "Index")</button>
+</div>
