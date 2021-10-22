@@ -1,0 +1,44 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Pierre.Models;
+
+<h1 class="text-center">Bonjour and Welcome to Pierre's!</h1>
+<hr>
+@if (@Model.Flavors.Count == 0)
+{
+  <h2>Please add a flavor.</h2>
+}
+else
+{
+  <h2>Our wonderful flavors:</h2>
+  <ul>
+  @foreach(var flavor in Model.Flavors)
+  {
+    <li>@Html.ActionLink($"{flavor.FlavorName}", "Details", "Flavors", new { id = flavor.FlavorId}, null)</li>
+  }
+  </ul>
+}
+<br>
+
+@if (@Model.Treats.Count == 0)
+{
+  <h2>Please add a treat.</h2>
+}
+else
+{
+  <h2>See our delicious treats:</h2>
+  <ul>
+  @foreach(var treat in Model.Treats)
+  {
+    <li>@Html.ActionLink($"{treat.TreatName}", "Details", "Treats", new { id = treat.TreatId}, null)</li>
+  }
+  </ul>
+}
+<br>
+<br>
+
+<p>@Html.ActionLink("View all Flavors", "Index", "Flavors")</p>
+<p>@Html.ActionLink("View all Treats", "Index", "Treats")</p>
+<p>@Html.ActionLink("Login or Register", "Index", "Account")</p>
