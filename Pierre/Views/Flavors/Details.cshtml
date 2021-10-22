@@ -29,8 +29,11 @@ else
 }
 
 <div id="footer">
-  <button  class="bottom">@Html.ActionLink("Back to list", "Index")</button>
-  <button  class="bottom">@Html.ActionLink("Add an Treat", "AddTreat", new { id = Model.FlavorId })</button>
-  <button  class="bottom">@Html.ActionLink("Edit Flavor", "Edit", new { id = Model.FlavorId })</button>
-  <button  class="bottom">@Html.ActionLink("Delete Flavor", "Delete", new { id = Model.FlavorId })</button>
+  <button class="bottom btn btn-outline-dark">@Html.ActionLink("Back to list", "Index")</button>
+  @if (User.Identity.IsAuthenticated)
+  {
+  <button class="bottom btn btn-outline-dark">@Html.ActionLink("Add a Treat", "AddTreat", new { id = Model.FlavorId })</button>
+  <button class="bottom btn btn-outline-dark">@Html.ActionLink("Edit Flavor", "Edit", new { id = Model.FlavorId })</button>
+  <button class="bottom btn btn-outline-dark">@Html.ActionLink("Delete Flavor", "Delete", new { id = Model.FlavorId })</button>
+  }
 </div>
