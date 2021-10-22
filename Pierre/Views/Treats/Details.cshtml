@@ -1,0 +1,39 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Pierre.Models
+@model Pierre.Models.Treat;
+
+<h2>Treat Details</h2>
+<hr />
+<h3>@Html.DisplayFor(model => model.TreatName)</h3>
+
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>This Treat hasn't been categorized yet.</p>
+}
+else
+{
+  <h4>Enjoy the many flavors @Model.TreatName has to offer:</h4>
+  <ul>
+  @foreach(var join in Model.JoinEntities)
+  {
+    <li>@Html.ActionLink($"{join.Flavor.FlavorName}", "Details", "Flavors", new {id = join.Flavor.FlavorId}, null)</li>
+  }
+  </ul>
+}
+<hr>
+<h4>Description: @Html.DisplayFor(model => model.TreatDescription)</h4>
+<hr>
+<h4>Price: @Html.DisplayFor(model => model.TreatPrice)</h4>
+<hr>
+<h4>Current Stock: @Html.DisplayFor(model => model.Inventory)</h4>
+
+
+<nav class="navbar fixed-bottom navbar-expand-xl navbar-dark bg-light">
+  <button class="btn btn-lg btn-outline-dark">@Html.ActionLink("Home", "Index", "Home")</button>
+  <button class="btn btn-lg btn-outline-dark">@Html.ActionLink("All Treats", "Index")</button>
+  <button class="btn btn-lg btn-outline-dark">@Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId })</button>
+  <input type="submit" class="ms-5 btn btn-lg btn-danger" value="Logout"/>
+</nav>

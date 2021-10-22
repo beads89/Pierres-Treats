@@ -22,13 +22,14 @@
   <input type="submit" value="Add new Treat" />
 }
 
-<nav class="navbar fixed-bottom navbar-expand-xl navbar-dark bg-light"> 
-  <button class="btn btn-lg btn-outline-dark">@Html.ActionLink("Show all Treats", "Index")</button>
+<nav class="navbar fixed-bottom navbar-expand-xl navbar-dark bg-light">
+  <button class="btn btn-lg btn-outline-dark">@Html.ActionLink("Home", "Index", "Home")</button>
+  <button class="btn btn-lg btn-outline-dark">@Html.ActionLink("All Treats", "Index")</button>
   @if (User.Identity.IsAuthenticated)
   {
     @using (Html.BeginForm("LogOff", "Account"))
     {
-      <input type="submit" class="form-control ms-5 btn btn-lg btn-danger" value="Logout"/>
+      <input type="submit" class="ms-5 btn btn-lg btn-danger" value="Logout"/>
     }
   }
 </nav>

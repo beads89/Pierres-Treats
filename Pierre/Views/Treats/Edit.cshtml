@@ -1,0 +1,36 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Microsoft.AspNetCore.Mvc.Rendering
+@model Pierre.Models.Treat
+
+<h2>Edit</h2>
+
+<h4>Edit this treat: @Html.DisplayFor(model => model.TreatName)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.TreatId)
+
+  <p>@Html.Label("Name: ")</p>
+  <p>@Html.TextBoxFor(model => model.TreatName)</p>
+  <hr>
+  <p>@Html.Label("Description: ")</p>
+  <p>@Html.TextBoxFor(model => model.TreatDescription)</p>
+  <hr>
+  <p>@Html.Label("Price: ")</p>
+  <p>@Html.TextBoxFor(model => model.TreatPrice)</p>
+  <hr>
+  <p>@Html.Label("Stock: ")</p>
+  <p>@Html.EditorFor(model => model.Inventory)</p>
+  <hr>
+
+  <input type="submit" value="Save" />
+}
+
+<nav class="navbar fixed-bottom navbar-expand-xl navbar-dark bg-light">
+  <button class="btn btn-lg btn-outline-dark">@Html.ActionLink("Home", "Index", "Home")</button>
+  <button class="btn btn-lg btn-outline-dark">@Html.ActionLink("All Treats", "Index")</button>
+  <input type="submit" class="form-control ms-5 btn btn-lg btn-danger" value="Logout"/>
+</nav>
