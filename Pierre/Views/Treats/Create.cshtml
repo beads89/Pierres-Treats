@@ -9,19 +9,19 @@
 {
   <p>@Html.Label("Name: ")</p>
   <p>@Html.TextBoxFor(model => model.TreatName)</p>
-  <br>
+  <hr>
   <p>@Html.Label("Description: ")</p>
   <p>@Html.TextBoxFor(model => model.TreatDescription)</p>
-  <br>
+  <hr>
   <p>@Html.Label("Price: ")</p>
   <p>@Html.TextBoxFor(model => model.TreatPrice)</p>
-  <br>
+  <hr>
   <p>@Html.Label("Stock: ")</p>
   <p>@Html.EditorFor(model => model.Inventory)</p>
-  <br>
+  <hr>
   <input type="submit" value="Add new Treat" />
 }
 
-<div id="footer">
-  <button class="bottom btn btn-outline-dark">@Html.ActionLink("Show all Treats", "Index")</button>
-</div>
+<nav class="navbar fixed-bottom navbar-expand-xl navbar-dark bg-light"> 
+  <button class="btn btn-lg btn-outline-dark">@Html.ActionLink("Show all Treats", "Index")</button>
+</nav>
