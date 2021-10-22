@@ -27,4 +27,11 @@
 
 <nav class="navbar fixed-bottom navbar-expand-xl navbar-dark bg-light"> 
   <button class="btn btn-lg btn-outline-dark">@Html.ActionLink("Show all flavors", "Index")</button>
+  @if (User.Identity.IsAuthenticated)
+  {
+    @using (Html.BeginForm("LogOff", "Account"))
+    {
+      <input type="submit" class="form-control ms-5 btn btn-lg btn-danger" value="Logout"/>
+    }
+  }
 </nav>

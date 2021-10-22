@@ -28,12 +28,10 @@ else
   <button class="btn btn-lg btn-outline-dark">@Html.ActionLink("Home", "Index", "Home")</button>
   @if (User.Identity.IsAuthenticated)
   {
-  <button class="btn btn-lg btn-outline-dark">@Html.ActionLink("Add new Treat", "Create")</button>
+    <button class="btn btn-lg btn-outline-dark">@Html.ActionLink("Add new Treat", "Create")</button>
     @using (Html.BeginForm("LogOff", "Account"))
     {
-      <div class="position-absolute bottom-100 end-50">
-        <input type="submit" class="btn btn-lg btn-danger" value="Logout" />
-      </div>
+        <input type="submit" class="form-control ms-5 btn btn-lg btn-danger" value="Logout"/>
     }
   }
 </nav>
