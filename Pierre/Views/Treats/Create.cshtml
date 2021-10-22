@@ -3,6 +3,7 @@
 }
 
 @model Pierre.Models.Treat
+@using Pierre.Models
 
 <h4>Add a new Treat</h4>
 @using (Html.BeginForm())
@@ -19,7 +20,10 @@
   <p>@Html.Label("Stock: ")</p>
   <p>@Html.EditorFor(model => model.Inventory)</p>
   <hr>
-  <input type="submit" value="Add new Treat" />
+  <p>@Html.Label("Add a flavor type, if available, to this treat:")</p>
+  <p>@Html.DropDownList("FlavorId")</p>
+  <br>
+  <input type="submit" class="btn btn-primary" value="Add new Treat" />
 }
 
 <nav class="navbar fixed-bottom navbar-expand-xl navbar-dark bg-light">

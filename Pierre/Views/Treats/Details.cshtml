@@ -26,7 +26,7 @@ else
 <hr>
 <h4>Description: @Html.DisplayFor(model => model.TreatDescription)</h4>
 <hr>
-<h4>Price: @Html.DisplayFor(model => model.TreatPrice)</h4>
+<h4>Price: $@Html.DisplayFor(model => model.TreatPrice)</h4>
 <hr>
 <h4>Current Stock: @Html.DisplayFor(model => model.Inventory)</h4>
 
@@ -35,5 +35,6 @@ else
   <button class="btn btn-lg btn-outline-dark">@Html.ActionLink("Home", "Index", "Home")</button>
   <button class="btn btn-lg btn-outline-dark">@Html.ActionLink("All Treats", "Index")</button>
   <button class="btn btn-lg btn-outline-dark">@Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId })</button>
+  <button class="btn btn-lg btn-outline-dark">@Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId })</button>
   <input type="submit" class="ms-5 btn btn-lg btn-danger" value="Logout"/>
 </nav>
