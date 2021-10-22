@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System;
 
-namespace PIerre.Models
+namespace Pierre.Models
 {
     public class Flavor
     {

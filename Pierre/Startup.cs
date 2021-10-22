@@ -4,12 +4,12 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using GameStore.Models;
+using Pierre.Models;
 using Microsoft.AspNetCore.Identity;
 // using System;
 // using System.Threading.Tasks;
 
-namespace GameStore
+namespace Pierre
 {
   public class Startup
   {
@@ -36,11 +36,11 @@ namespace GameStore
       });
 
       services.AddEntityFrameworkMySql()
-        .AddDbContext<GameStoreContext>(options => options
+        .AddDbContext<PierreContext>(options => options
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
 
       services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<GameStoreContext>()
+                .AddEntityFrameworkStores<PierreContext>()
                 .AddDefaultTokenProviders();
 
       services.Configure<IdentityOptions>(options =>
@@ -73,7 +73,7 @@ namespace GameStore
 
       app.Run(async (context) =>
       {
-        await context.Response.WriteAsync("Hello World!");
+        await context.Response.WriteAsync("Check routes!");
       });
     }
   }

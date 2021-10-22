@@ -1,6 +1,6 @@
 namespace Pierre.Models
 {
-  public class CustomerGame
+  public class FlavorTreat
     {
         public int FlavorTreatId { get; set; }
         public int FlavorId { get; set; }
