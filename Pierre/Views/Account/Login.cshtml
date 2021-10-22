@@ -1,0 +1,32 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Microsoft.AspNetCore.Mvc
+@using System.Web
+
+@using Pierre.ViewModels
+
+@model LoginViewModel
+
+<h2>Login with your account</h2>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(m => m.Email)
+    @Html.TextBoxFor(m => m.Email, new { required = "required"})
+    <br>
+    @Html.LabelFor(m => m.Password)
+    @Html.PasswordFor(m => m.Password, new { required = "required"})
+    @Html.ValidationSummary(true, "The username and/or password do not match. Please try again.")
+    <br>
+    @* <input type="hidden" name="PreviousUrl" value="@Model.PreviousUrl" /> *@
+
+    <input type="submit" value="Login" class="btn btn-primary" />
+}
+
+@* @{ var request = HttpContext.Current.Request.Headers["Referer"].ToString(); } *@
+
+<div id="footer">
+<button class="bottom">@Html.ActionLink("Home", "Index", "Home")</button>
+</div>
