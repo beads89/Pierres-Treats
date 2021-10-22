@@ -1,0 +1,27 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Pierre.Models.Treat
+
+<h4>Add a new Treat</h4>
+@using (Html.BeginForm())
+{
+  <p>@Html.Label("Name: ")</p>
+  <p>@Html.TextBoxFor(model => model.TreatName)</p>
+  <br>
+  <p>@Html.Label("Description: ")</p>
+  <p>@Html.TextBoxFor(model => model.TreatDescription)</p>
+  <br>
+  <p>@Html.Label("Price: ")</p>
+  <p>@Html.TextBoxFor(model => model.TreatPrice)</p>
+  <br>
+  <p>@Html.Label("Stock: ")</p>
+  <p>@Html.EditorFor(model => model.Inventory)</p>
+  <br>
+  <input type="submit" value="Add new Treat" />
+}
+
+<div id="footer">
+  <button class="bottom btn btn-outline-dark">@Html.ActionLink("Show all Treats", "Index")</button>
+</div>
