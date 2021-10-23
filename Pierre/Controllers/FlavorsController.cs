@@ -69,6 +69,7 @@ namespace Pierre.Controllers
     [HttpPost]
     public ActionResult Edit(Flavor flavor, int TreatId)
     {
+      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "TreatName");
       if (TreatId != 0)
       {
         _db.FlavorTreat.Add(new FlavorTreat() { TreatId = TreatId, FlavorId = flavor.FlavorId });

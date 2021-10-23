@@ -42,7 +42,6 @@ namespace Pierre.Controllers
         }
         else
         {
-        ModelState.AddModelError("password", "The email or password is incorrect");
         ModelState.AddModelError("", "The email or password provided is incorrect.");
           return View();
         }

@@ -42,6 +42,7 @@ namespace Pierre.Controllers
       return RedirectToAction("Index");
     }
 
+
     [AllowAnonymous]
     public ActionResult Details(int id)
     {
@@ -58,8 +59,13 @@ namespace Pierre.Controllers
       return View(thisTreat);
     }
     [HttpPost]
-    public ActionResult Edit(Treat treat)
+    public ActionResult Edit(Treat treat, int FlavorId)
     {
+      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "FlavorName");
+      if (FlavorId != 0)
+      {
+        _db.FlavorTreat.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = treat.TreatId });
+      }
       _db.Entry(treat).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");

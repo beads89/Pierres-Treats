@@ -34,7 +34,17 @@ else
 <nav class="navbar fixed-bottom navbar-expand-xl navbar-dark bg-light">
   <button class="btn btn-lg btn-outline-dark">@Html.ActionLink("Home", "Index", "Home")</button>
   <button class="btn btn-lg btn-outline-dark">@Html.ActionLink("All Treats", "Index")</button>
-  <button class="btn btn-lg btn-outline-dark">@Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId })</button>
-  <button class="btn btn-lg btn-outline-dark">@Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId })</button>
-  <input type="submit" class="ms-5 btn btn-lg btn-danger" value="Logout"/>
+  @if (User.Identity.IsAuthenticated)
+  {
+    <button class="btn btn-lg btn-outline-dark">@Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId })</button>
+    <button class="btn btn-lg btn-outline-dark">@Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId })</button>
+    @using (Html.BeginForm("LogOff", "Account"))
+    {
+        <input type="submit" class="ms-5 btn btn-lg btn-danger" value="Logout"/>
+    }
+  }
+  else
+  {
+    <button class="ms-5 btn btn-lg btn-outline-dark">@Html.ActionLink("Login or Register", "Index", "Account")</button>
+  }
 </nav>

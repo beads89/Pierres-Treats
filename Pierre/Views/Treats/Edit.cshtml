@@ -35,5 +35,8 @@
 <nav class="navbar fixed-bottom navbar-expand-xl navbar-dark bg-light">
   <button class="btn btn-lg btn-outline-dark">@Html.ActionLink("Home", "Index", "Home")</button>
   <button class="btn btn-lg btn-outline-dark">@Html.ActionLink("All Treats", "Index")</button>
-  <input type="submit" class="ms-5 btn btn-lg btn-danger" value="Logout"/>
+  @using (Html.BeginForm("LogOff", "Account"))
+  {
+      <input type="submit" class="ms-5 btn btn-lg btn-danger" value="Logout"/>
+  }
 </nav>
