@@ -41,12 +41,14 @@ else
 
 <p>@Html.ActionLink("View all Flavors", "Index", "Flavors")</p>
 <p>@Html.ActionLink("View all Treats", "Index", "Treats")</p>
-<p>@Html.ActionLink("Login or Register", "Index", "Account")</p>
-<br>
+
 @if (User.Identity.IsAuthenticated)
 {
   @using (Html.BeginForm("LogOff", "Account"))
   {
     <input type="submit" class="btn btn-lg btn-danger" value="Logout"/>
   }
+} else
+{
+    <p>@Html.ActionLink("Login or Register", "Index", "Account")</p>
 }

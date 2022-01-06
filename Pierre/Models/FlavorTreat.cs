@@ -9,4 +9,3 @@ namespace Pierre.Models
         public virtual Treat Treat { get; set; }
     }
 }
-        // public bool Returned { get; set; }
